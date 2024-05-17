@@ -1,0 +1,438 @@
+<template>
+    <div class="text-box">
+        <h1>Unleash Compassion: Find Your Furry Friend with Adoptify</h1>
+    </div>
+    <div class="form-and-donate">
+        <form>
+            <div class="form-flex-row-img">
+                <div class="form-flex-column">
+                    <div class="form-button-row">
+                        <div class="form-group">
+                            <label for="catTypes">Pet Type</label>
+                            <select id="catTypes" onchange="filterCats(this.value)" class="form-control">
+                                <option>Cat Type</option>
+                                <option value="all">Ragdoll</option>
+                                <option value="ragdoll">Persian</option>
+                                <option value="siamese">Siamese</option>
+                                <option value="coon">Coon</option>
+                                <option value="sphynx">Sphynx</option>
+                                <option value="devon rex">Devon Rex</option>
+                                <option value="british shorthair">British Shorthair</option>
+                            </select>
+                            <section>
+                                <div class="cat-item" data-type="ragdoll">Ragdoll Cat</div>
+                                <div class="cat-item" data-type="persian">Persian Cat</div>
+                                <div class="cat-item" data-type="siamese">Siamese Cat</div>
+                                <div class="cat-item" data-type="coon">Coon Cat</div>
+                                <div class="cat-item" data-type="sphynx">Sphynx Cat</div>
+                                <div class="cat-item" data-type="devon rex">Devon Rex Cat</div>
+                                <div class="cat-item" data-type="british shorthair">British Shorthair Cat</div>
+                            </section>
+
+                            <section class="show" data-type="ragdoll">Ragdoll Cat Details
+                                <div>
+                                    Lisa
+                                    Pista
+                                    Kabel
+                                </div>
+                            </section>
+                            <section class="show" data-type="persian">Persian Cat Details</section>
+                            <section class="show" data-type="siamese">Siamese Cat Details</section>
+                            <section class="show" data-type="coon">Coon Cat Details</section>
+                            <section class="show" data-type="sphynx">Sphynx Cat Details</section>
+                            <section class="show" data-type="devon rex">Devon Rex Cat Details</section>
+                            <section class="show" data-type="british shorthair">British Shorthair Cat Details
+                            </section>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="email" class="form-control" placeholder="Town or Postcode">
+                        </div>
+                    </div>
+                    <div class="form-submit-button">
+                        <button type="button" class="btn btn-primary search-button">Search</button>
+                    </div>
+                </div>
+                <div class="form-image">
+                    <img src="/src/views/auth/pics/dog-cat.png" alt="dog-and-cat">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <section class="course">
+        <h1></h1>
+
+        <p>
+            <span>
+                Animals bring a unique joy and companionship to our lives. Adopting an animal is not just about
+                providing a home to a pet in need, but it’s also about enriching our own lives. Through adoption,
+                we gain a loyal friend, learn responsibility, and experience the unconditional love that animals
+                offer
+                <br><br>
+                By choosing to adopt, we not only give these animals a second chance, but we also gain a faithful
+                companion. Adoption helps reduce the number of animals in shelters and supports the fight against
+                animal homelessness.
+                It’s a meaningful gesture that promotes kindness and the well-being of our furry friends.
+                <div class="row">
+                    <div class="course-col">
+                        <h3>Stress Relief</h3>
+                        <p>Interacting with pets can lower cortisol levels,
+                            reducing stress and promoting
+                            relaxation.</p>
+
+                    </div>
+                    <div class="course-col">
+                        <h3>Social Interaction
+                        </h3>
+                        <p> Caring for a pet provides structure to your day and a
+                            sense of responsibility.</p>
+                    </div>
+
+                    <div class="course-col">
+                        <h3>Mental Health</h3>
+                        <p>Pets provide companionship, reduce feelings of
+                            loneliness, and can lift your mood.</p>
+                    </div>
+                </div>
+            </span>
+        </p>
+    </section>
+    <section class="campus">
+        <h1>Where to find us</h1>
+        <div class="row">
+            <div class="campus-col">
+                <img src="/src/views/auth/pics/london.png">
+                <div class="layer">
+                    <h3>TANGER</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="/src/views/auth/pics/newyork.png">
+                <div class="layer">
+                    <h3>CASA BLANCA</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="/src/views/auth/pics/washington.png">
+                <div class="layer">
+                    <h3>RABAT</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta">-
+        <h1 style="margin-left: 0%;">
+            Inscrivez-vous à nos diverses activités en ligne
+            n'importe où dans le monde</h1>
+        <button @click="$router.push('/contacter')">Contact Us</button>
+    </section>
+
+
+</template>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900&display=swap');
+
+/*donate form */
+.form-button-row {
+    display: flex;
+    flex-direction: row;
+}
+.form-group {
+    margin-right: 2%;
+}
+input.form-control,
+select.form-control {
+    font-size: 1em;
+}
+
+.form-group label {
+    color: rgb(255, 255, 255);
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+
+}
+
+.form-submit-button .btn-primary:hover,
+.btn.btn-primary:hover {
+    background: #6E736A;
+    color: #000;
+}
+
+.form-and-donate {
+    margin-top: 20%;
+}
+
+.form-flex-row-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.form-flex-column {
+    display: flex;
+    flex-direction: column;
+    background-color: #658494;
+    border-radius: 5px;
+    padding: 35px 40px;
+}
+
+.form-submit-button .btn-primary,
+a.btn.donate-button.btn-primary,
+.btn.btn-primary {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    background-color: #0E3142;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 8px 13px;
+    margin-left: 40%;
+    margin-top: 0;
+    border-radius: 10%;
+    letter-spacing: 2px;
+}
+
+/*mb-3*/
+.mb-3 h2 {
+    font-size: 20px;
+    margin-top: 5%;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 2%;
+    color: #103546;
+    letter-spacing: 2px;
+}
+
+/*footer*/
+.footer {
+    width: 50%;
+    text-align: center;
+    padding: 30px 0;
+
+}
+
+.footer p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+
+
+.icons .fa {
+    color: #103546;
+    image-resolution: 0 13px;
+    cursor: pointer;
+    padding: 20px 15px;
+}
+
+.fa-heart-o {
+    color: #103546;
+}
+
+button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+/*cta*/
+
+.cta h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+
+}
+
+.cta {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    margin: 10px auto;
+    width: 80%;
+    background-color: #5C737F;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+
+    text-align: center;
+    padding: 100px;
+}
+
+.row {
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-col {
+    flex-basis: 31%;
+    background: #103546;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+h3 {
+
+    font-weight: 20px;
+    text-align: center;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.course-col:hover {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+h6 {
+    margin-bottom: 10%;
+}
+
+.course {
+    width: 80%;
+    margin: auto;
+
+    text-align: center;
+    padding-top: 100px;
+
+}
+
+p {
+    margin-left: "5%";
+    font-size: 1px;
+    margin-top: 80px;
+    font-weight: 300;
+    color: #103546;
+    font-family: 'Lato', sans-serif;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.row p {
+    margin-left: "5%";
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 300;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    line-height: 22px;
+    padding: 10px;
+}
+
+span {
+    margin-top: 20%;
+    font-size: 20px;
+
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+@media(max-width:700px) {
+    .cta h1 {
+        font-size: 24px;
+
+    }
+}
+
+@media(max-width:700px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+
+@media(max-width:700px) {
+    .text-box h1 {
+        font-size: 20px;
+    }
+}
+
+.text-box h1 {
+    color: #5C737F;
+    font-size: 42px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.text-box {
+
+    width: 50%;
+    font-size: 40px;
+    color: #5C737F;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.campus-col {
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.campus-col img {
+    width: 100%;
+    display: block;
+}
+
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.layer:hover {
+    background: #47626F;
+}
+
+.layer h3 {
+    width: 100%;
+    font-weight: 500;
+    color: black;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    transition: 0.5s;
+}
+
+.layer:hover h3 {
+    bottom: 49%;
+    opacity: 1;
+}
+
+.campus h1 {
+    margin-left: 40%;
+}
+
+* {}
+</style>
