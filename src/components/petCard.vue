@@ -6,3 +6,11 @@
     </span>
   </div>
 </template>
+<script>
+props: {
+      pet: {
+        type: Object,
+        required: true
+      }
+    }
+</script>
