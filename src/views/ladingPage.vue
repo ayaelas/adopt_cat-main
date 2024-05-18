@@ -8,60 +8,58 @@
                 <div class="form-flex-column">
                     <div class="form-button-row">
                         <div class="form-group">
-                            <label for="catTypes">Pet Type</label>
-                            <select id="catTypes" onchange="filterCats(this.value)" class="form-control">
-                                <option>Cat Type</option>
-                                <option value="all">Ragdoll</option>
-                                <option value="ragdoll">Persian</option>
-                                <option value="siamese">Siamese</option>
-                                <option value="coon">Coon</option>
-                                <option value="sphynx">Sphynx</option>
-                                <option value="devon rex">Devon Rex</option>
-                                <option value="british shorthair">British Shorthair</option>
+                            <label for="catTypes">Our Family</label>
+                            <select id="catTypes" @change="filterCats($event.target.value)" class="form-control">
+                                <option value="t1">Persian </option>
+                                <option value="t2">Siamese</option>
+                                <option value="t3">Maine Coon</option>
+                                <option value="t4">Sphynx </option>
+                                <option value="t5">Bengal</option>
+
                             </select>
-                            <section>
-                                <div class="cat-item" data-type="ragdoll">Ragdoll Cat</div>
-                                <div class="cat-item" data-type="persian">Persian Cat</div>
-                                <div class="cat-item" data-type="siamese">Siamese Cat</div>
-                                <div class="cat-item" data-type="coon">Coon Cat</div>
-                                <div class="cat-item" data-type="sphynx">Sphynx Cat</div>
-                                <div class="cat-item" data-type="devon rex">Devon Rex Cat</div>
-                                <div class="cat-item" data-type="british shorthair">British Shorthair Cat</div>
+                            <section v-show="selectedCatType === 't1'">
+                                <div class="cat-item" data-type="ragdoll">Fluffy </div>
+                                <div class="cat-item" data-type="persian">Bella</div>
+                                <div class="cat-item" data-type="siamese">Palia</div>
+                                <div class="cat-item" data-type="coon">Luna</div>
+                                <div class="cat-item" data-type="sphynx">Gizmo</div>
+                            </section>
+                            <section v-show="selectedCatType === 't2'">
+                                <div class="cat-item" data-type="ragdoll">Mia </div>
+                                <div class="cat-item" data-type="persian">Olivia</div>
+                                <div class="cat-item" data-type="siamese">Lily</div>
+                                <div class="cat-item" data-type="coon">MAx</div>
+                                <div class="cat-item" data-type="sphynx">Sophie</div>
+                            </section>
+                            <section v-show="selectedCatType === 't3'">
+                                <div class="cat-item" data-type="ragdoll">Leo </div>
+                                <div class="cat-item" data-type="persian">Rocky</div>
+                                <div class="cat-item" data-type="siamese">Chloe</div>
+                                <div class="cat-item" data-type="coon">Tiger</div>
+                                <div class="cat-item" data-type="sphynx">Cleo</div>
                             </section>
 
-                            <section class="show" data-type="ragdoll">Ragdoll Cat Details
-                                <div>
-                                    Lisa
-                                    Pista
-                                    Kabel
-                                </div>
-                            </section>
-                            <section class="show" data-type="persian">Persian Cat Details</section>
-                            <section class="show" data-type="siamese">Siamese Cat Details</section>
-                            <section class="show" data-type="coon">Coon Cat Details</section>
-                            <section class="show" data-type="sphynx">Sphynx Cat Details</section>
-                            <section class="show" data-type="devon rex">Devon Rex Cat Details</section>
-                            <section class="show" data-type="british shorthair">British Shorthair Cat Details
-                            </section>
+                            <section v-show="selectedCatType === 't4'">ANA Persina </section>
+                            <section v-show="selectedCatType === 't5'">Empty !! </section>
 
+                            <br>
+
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="email" class="form-control" placeholder="Town or Postcode">
+                            </div>
+                            <div class="form-submit-button">
+                                <router-link to="/petsList"><button type="button" class="btn btn-primary search-button">Add your pet</button></router-link>
+                            </div>
                         </div>
-
-                        <div class="form-group">
-                            <label>Location</label>
-                            <input type="email" class="form-control" placeholder="Town or Postcode">
+                        <div class="form-image">
+                            <img src="/src/views/auth/pics/dog-cat.png" alt="dog-and-cat">
                         </div>
                     </div>
-                    <div class="form-submit-button">
-                        <button type="button" class="btn btn-primary search-button">Search</button>
-                    </div>
-                </div>
-                <div class="form-image">
-                    <img src="/src/views/auth/pics/dog-cat.png" alt="dog-and-cat">
                 </div>
             </div>
         </form>
     </div>
-
 
     <section class="course">
         <h1></h1>
@@ -124,17 +122,91 @@
             </div>
         </div>
     </section>
-
-
     <section class="cta">-
         <h1 style="margin-left: 0%;">
             Inscrivez-vous à nos diverses activités en ligne
             n'importe où dans le monde</h1>
         <button @click="$router.push('/contacter')">Contact Us</button>
     </section>
-
-
 </template>
+
+<script>
+
+export default {
+    data() {
+        return {
+            selectedCatType: ''
+        };
+    },
+    watch: {
+        selectedCatType(newVal) {
+            this.filterCats(newVal);
+        }
+    },
+    methods: {
+        filterCats(type) {
+            this.selectedCatType = type;
+        }
+    }
+    // mounted() {
+    //     document.addEventListener("DOMContentLoaded", function () {
+    //         var catItems = document.querySelectorAll('.cat-item');
+    //         var sections = document.querySelectorAll('.show');
+
+    //         function filterCats(selectedType) {
+    //             // Clear all cat items
+    //             catItems.forEach(function (item) {
+    //                 item.style.display = 'none';
+    //             });
+    //             sections.forEach(function (section) {
+    //                 section.style.display = 'none'
+    //             });
+    //             // Show items matching the selected type
+    //             switch (selectedType) {
+    //                 case 't1':
+    //                     document.querySelector('[data-type="ragdoll"]').style.display = 'block';
+    //                     break;
+    //                 case 't2':
+    //                     document.querySelector('[data-type="persian"]').style.display = 'block';
+    //                     break;
+    //                 case 't3':
+    //                     document.querySelector('[data-type="siamese"]').style.display = 'block';
+    //                     break;
+    //                 case 't4':
+    //                     document.querySelector('[data-type="coon"]').style.display = 'block';
+    //                     break;
+    //                 case 't5':
+    //                     document.querySelector('[data-type="sphynx"]').style.display = 'block';
+    //                     break;
+
+    //                 default:
+    //                     // Initial display of all items
+    //                     catItems.forEach(function (item) {
+    //                         item.style.display = 'block';
+    //                     });
+    //                     sections.forEach(function (section) {
+    //                         section.style.display = 'block';
+    //                     });
+    //             }
+    //         }
+    //         document.getElementById('catTypes').addEventListener('change', function () {
+    //             filterCats(this.value);
+    //         });
+
+    //         // Optionally, show all items initially if needed
+    //         catItems.forEach(function (item) {
+    //             item.style.display = 'block';
+    //         });
+    //         sections.forEach(function (section) {
+    //             section.style.display = 'block';
+    //         });
+    //     });
+    // }
+}
+
+</script>
+
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900&display=swap');
@@ -144,25 +216,29 @@
     display: flex;
     flex-direction: row;
 }
+
 .form-group {
     margin-right: 2%;
 }
+
 input.form-control,
 select.form-control {
     font-size: 1em;
+    margin-left: 7%;
 }
 
 .form-group label {
-    color: rgb(255, 255, 255);
-    font-family: 'Heebo', sans-serif;
-    font-size: 1.3em;
+    color: #103546;
+    font-family: 'Verdana', sans-serif;
+    font-size: 25px;
     font-weight: 400;
+    font-weight: bold;
 
 }
 
 .form-submit-button .btn-primary:hover,
 .btn.btn-primary:hover {
-    background: #6E736A;
+    background: #f6ffee;
     color: #000;
 }
 
@@ -193,9 +269,9 @@ a.btn.donate-button.btn-primary,
     border: 0;
     text-transform: uppercase;
     font-size: 16px;
-    padding: 8px 13px;
+    padding: 8px 20px;
     margin-left: 40%;
-    margin-top: 0;
+    margin-top: 5%;
     border-radius: 10%;
     letter-spacing: 2px;
 }

@@ -1,4 +1,8 @@
 <template>
+    <div class="upper-section">
+        <img src="../auth/pics/adoptme.jpeg" alt="Adoptable Cat" />
+    </div>
+    
     <form @submit.prevent="submitFunction" class=".container">
         <div class="blog-left">
             <div class="blog">
@@ -17,11 +21,11 @@
                     <input v-model="password" type="password" placeholder="Password" required>
                 </div>
 
-                <button type="submit" :disabled="isLoading" class="hero-btn red-btn">{{ isLoading ? 'Loading...' : 'Addpet to the Family' }}</button>
+                <button type="submit" :disabled="isLoading" class="hero-btn red-btn">{{ isLoading ? 'Loading...' : 'Add pet to the Family' }}</button>
                 <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
                 <p>I already have an account <a href="#">Click Here!</a></p>
                 <div class="btn-field">
-                    <!-- <button id="up">Sign up</button> -->
+                    <router-link to="/petsList"><button id="up">Check Our Pets</button></router-link>
                     <router-link to="/logIn"><button>Sign In</button></router-link>
                 </div>
             </div>
@@ -113,5 +117,16 @@ const submitFunction = async () => {
 .success-message {
     color: green;
     margin-top: 20px;
+}
+/*image*/ 
+.upper-section {
+    text-align: center; /* Center the image horizontally */
+    margin-bottom: 10px; /* Add some space between the image and the form */
+}
+
+.upper-section img {
+    max-width: 100%; /* Ensure the image scales down if it's too large */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px; /* Optional: round the corners of the image */
 }
 </style>

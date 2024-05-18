@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import landingPage from './views/ladingPage.vue';
 import blogPage from './views/blogPage.vue';
-import petList from './views/petsList.vue';
+import petsList from './views/petsList.vue';
 import petProfile from './views/petProfile.vue';
 import petRegister from './views/petRegister.vue';
 import contacter from './views/contacter.vue';
 import signUp from './views/auth/signUp.vue';
 import logIn from './views/auth/logIn.vue';
+import PetCard from './components/petCard.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,8 +21,12 @@ const router = createRouter({
         component: blogPage,
       },
       {
-        path: '/pets',
-        component: petList,
+        path: '/petsList',
+        component: petsList,
+      },
+      {
+        path: '/petCard',
+        component: PetCard,
       },
       {
         path: '/pets/:id',
