@@ -8,9 +8,9 @@
                 <div class="form-flex-column">
                     <div class="form-button-row">
                         <div class="form-group">
-                            <label for="catTypes">Our Family</label>
+                            <label for="catTypes">Check our Family</label>
                             <select id="catTypes" @change="filterCats($event.target.value)" class="form-control">
-                                <option value="t1">Persian </option>
+                                <option value="t1">Allian </option>
                                 <option value="t2">Siamese</option>
                                 <option value="t3">Maine Coon</option>
                                 <option value="t4">Sphynx </option>
@@ -39,15 +39,15 @@
                                 <div class="cat-item" data-type="sphynx">Cleo</div>
                             </section>
 
-                            <section v-show="selectedCatType === 't4'">ANA Persina </section>
-                            <section v-show="selectedCatType === 't5'">Empty !! </section>
+                            <section class="a" v-show="selectedCatType === 't4'">Persina </section>
+                            <section class="a" v-show="selectedCatType === 't5'">Empty !! </section>
 
                             <br>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Location</label>
                                 <input type="email" class="form-control" placeholder="Town or Postcode">
-                            </div>
+                            </div> -->
                             <div class="form-submit-button">
                                 <router-link to="/petsList"><button type="button" class="btn btn-primary search-button">Add your pet</button></router-link>
                             </div>
@@ -124,8 +124,7 @@
     </section>
     <section class="cta">-
         <h1 style="margin-left: 0%;">
-            Inscrivez-vous à nos diverses activités en ligne
-            n'importe où dans le monde</h1>
+            Sign up for our various online activities anywhere in the world</h1>
         <button @click="$router.push('/contacter')">Contact Us</button>
     </section>
 </template>
@@ -210,7 +209,15 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900&display=swap');
-
+/* items */
+.cat-item {
+    color: #fff;
+    margin-left: 10%;
+}
+.a {
+    color: #fff;
+    margin-left: 10%;
+}
 /*donate form */
 .form-button-row {
     display: flex;
@@ -219,12 +226,18 @@ export default {
 
 .form-group {
     margin-right: 2%;
+    padding: 2% 2%;
 }
 
 input.form-control,
 select.form-control {
     font-size: 1em;
     margin-left: 7%;
+    padding-left: 16%;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 5%;
+    background-color: #EBD7C5;
 }
 
 .form-group label {
@@ -232,6 +245,7 @@ select.form-control {
     font-family: 'Verdana', sans-serif;
     font-size: 25px;
     font-weight: 400;
+    margin-bottom: ;
     font-weight: bold;
 
 }
@@ -270,8 +284,8 @@ a.btn.donate-button.btn-primary,
     text-transform: uppercase;
     font-size: 16px;
     padding: 8px 20px;
-    margin-left: 40%;
-    margin-top: 5%;
+    margin-left: 10%;
+    margin-top: 20%;
     border-radius: 10%;
     letter-spacing: 2px;
 }
@@ -282,7 +296,7 @@ a.btn.donate-button.btn-primary,
     margin-top: 5%;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
     color: #103546;
     letter-spacing: 2px;
 }

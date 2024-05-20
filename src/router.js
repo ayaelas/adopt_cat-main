@@ -32,6 +32,7 @@ const router = createRouter({
         path: '/pets/:id',
         component: petProfile,
         props: true,
+        name: 'petProfile',
       },
       {
         path: '/register',
